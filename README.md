@@ -9,7 +9,7 @@ O objetivo é parar de copiar/colar front end a cada projeto: a gem fornece
 
 ## Instalação
 
-No `Gemfile` do projeto (gem privada — puxa do GitHub):
+No `Gemfile` do projeto:
 
 ```ruby
 gem "odeio_front_end", github: "Jao-Dev/odeio_front_end"
