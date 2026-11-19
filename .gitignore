@@ -1,0 +1,14 @@
+.bundle/
+.rspec
+/db/*.sqlite3
+/db/*.sqlite3-*
+/log/*.log
+/pkg/
+/tmp/
+/.yardoc
+/coverage/
+/doc/
+Gemfile.lock
+*.gem
+/spec/dummy/log/
+/spec/dummy/config/log/

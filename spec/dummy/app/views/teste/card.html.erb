@@ -1,0 +1,7 @@
+<%= card "Ficha", actions: [btn("Editar", "/editar"), btn("Excluir", "/excluir", method: :delete, confirm: "Deseja excluir?")] do %>
+  <p class="conteudo-teste">conteúdo do card</p>
+<% end %>
+
+<%= card do %>
+  <p>card sem título</p>
+<% end %>

@@ -1,0 +1,10 @@
+.card
+  .table-responsive
+    %table.table{ class: table_classes, **@html }
+      - if @headers.any?
+        %thead
+          %tr
+            - @headers.each do |header|
+              %th= header
+      %tbody
+        = content

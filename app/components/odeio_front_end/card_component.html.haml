@@ -1,0 +1,6 @@
+.card{**@html}
+  - if render_header?
+    .card-header.d-flex.align-items-center
+      %h1.card-title= @title
+      .ms-auto.d-flex.align-items-center= actions_body
+  = content
