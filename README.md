@@ -51,9 +51,9 @@ Links padronizados (o texto e o estilo vêm da gem):
 Todos os helpers de botão/link aceitam `auth:` — quando `false`, o botão não
 renderiza (útil para Pundit: `link_edit(path, auth: policy(p).update?)`).
 
-`btn` aceita `style:`, `size: :small`, `method:`, `confirm:` e `auth:`
-(ao contrário do `ui_helper` antigo do ficha_rpg, o botão é normal por padrão —
-`btn-sm` só quando `size: :small`).
+`btn` aceita `style:`, `size:`, `method:`, `confirm:` e `auth:`
+(ao contrário do `ui_helper` antigo do ficha_rpg, o botão é pequeno (`btn-sm`)
+por padrão — `size: :normal` para o tamanho grande).
 
 ## Desenvolvimento
 

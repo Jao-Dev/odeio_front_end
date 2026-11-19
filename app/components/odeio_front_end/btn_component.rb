@@ -1,6 +1,6 @@
 module OdeioFrontEnd
   class BtnComponent < ApplicationComponent
-    def initialize(label, path, style: :primary, size: nil, method: nil, confirm: nil, auth: true, html: {})
+    def initialize(label, path, style: :primary, size: :small, method: nil, confirm: nil, auth: true, html: {})
       @label = label
       @path = path
       @style = style
@@ -14,7 +14,7 @@ module OdeioFrontEnd
     def render? = @auth
 
     def call
-      classes = [ "btn", "btn-#{@style}", ("btn-sm" if @size == :small) ].compact.join(" ")
+      classes = [ "btn", "btn-#{@style}", ("btn-sm" unless @size == :normal) ].compact.join(" ")
 
       if @method
         button_to @label, @path, method: @method, class: classes,

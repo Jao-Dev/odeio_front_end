@@ -1,17 +1,17 @@
 require "rails_helper"
 
 RSpec.describe OdeioFrontEnd::BtnComponent, type: :component do
-  it "renderiza link com estilo padrão" do
+  it "renderiza link com estilo padrão, menor" do
     render_inline(described_class.new("Salvar", "/salvar"))
 
-    expect(page).to have_css("a.btn.btn-primary", text: "Salvar")
-    expect(page).to have_no_css("a.btn-sm")
+    expect(page).to have_css("a.btn.btn-sm.btn-primary", text: "Salvar")
   end
 
-  it "renderiza menor com size: :small" do
-    render_inline(described_class.new("Pequeno", "/pequeno", size: :small))
+  it "renderiza tamanho normal com size: :normal" do
+    render_inline(described_class.new("Grande", "/grande", size: :normal))
 
-    expect(page).to have_css("a.btn.btn-sm", text: "Pequeno")
+    expect(page).to have_css("a.btn.btn-primary", text: "Grande")
+    expect(page).to have_no_css("a.btn-sm")
   end
 
   it "renderiza botão de form com method" do

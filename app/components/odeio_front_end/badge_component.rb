@@ -6,7 +6,7 @@ module OdeioFrontEnd
     end
 
     def call
-      content_tag :span, @text, class: "badge bg-#{@style}"
+      content_tag :span, @text, class: "badge bg-#{@style}-lt"
     end
   end
 end
