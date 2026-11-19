@@ -1,6 +1,6 @@
 # odeio_front_end
 
-Gem de layout para os projetos pessoais do Jao, no estilo do `uenf_layout` usado no trabalho:
+Gem de layout para os projetos pessoais:
 componentes ViewComponent sobre Tabler/Bootstrap, registrados como helpers de view.
 
 O objetivo é parar de copiar/colar front end a cada projeto: a gem fornece
