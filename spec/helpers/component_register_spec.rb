@@ -28,4 +28,16 @@ RSpec.describe "ComponentRegister", type: :request do
     expect(response.body).to include("Excluir")
     expect(response.body).not_to include("/bloqueado")
   end
+
+  it "expõe helpers de formulário" do
+    get "/teste/forma"
+
+    expect(response.body).to include("page-title")
+    expect(response.body).to include("Nova personagem")
+    expect(response.body).to include("form-control")
+    expect(response.body).to include("form-select")
+    expect(response.body).to include("R$")
+    expect(response.body).to include("Salvar")
+    expect(response.body).to include("Cancelar")
+  end
 end

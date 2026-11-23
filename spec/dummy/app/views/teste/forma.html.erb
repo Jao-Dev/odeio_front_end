@@ -1,0 +1,9 @@
+<%= form_with url: "/teste/forma", method: :post, scope: :personagem do |f| %>
+  <%= form_card "Nova personagem", f, subtitle: "Dados básicos", cancel_path: "/teste/card" do %>
+    <%= field f, :nome, label: "Nome" do |html| %>
+      <%= f.text_field :nome, html %>
+    <% end %>
+    <%= select_field f, :classe, [["Guerreiro", "guerreiro"], ["Mago", "mago"]], label: "Classe", prompt: "Selecione" %>
+    <%= money_field f, :preco, label: "Preço" %>
+  <% end %>
+<% end %>

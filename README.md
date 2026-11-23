@@ -55,6 +55,35 @@ renderiza (útil para Pundit: `link_edit(path, auth: policy(p).update?)`).
 (ao contrário do `ui_helper` antigo do ficha_rpg, o botão é pequeno (`btn-sm`)
 por padrão — `size: :normal` para o tamanho grande).
 
+## Formulários
+
+O `form_with` fica na view (padrão Rails); a gem embrulha o resto:
+
+```haml
+= form_with model: @personagem do |f|
+  = form_card 'Nova personagem', f, subtitle: 'Dados básicos',
+    cancel_path: personagens_path, actions: [ btn('Voltar', personagens_path, style: :link) ] do
+    = field f, :nome, label: 'Nome' do |html|
+      = f.text_field :nome, html
+    = money_field f, :preco, label: 'Preço'
+    = select_field f, :classe, Classe.all, label: 'Classe', prompt: 'Selecione'
+```
+
+- `form_card` — page-header Tabler (título + subtítulo + `actions:` à direita),
+  card com o corpo do formulário, resumo de erros do model (quando houver) e
+  footer com `Salvar` (submit) e `Cancelar` (link para `cancel_path:`, padrão `:back`).
+  Aceita também `submit_label:`.
+- `field` — label + input + mensagem de erro + `hint:`. O bloco recebe o
+  `html` pronto (com `form-control` e `is-invalid` quando o atributo tem erro):
+  basta passar ao input do Rails.
+- `select_field` — select estilizado (`form-select`); aceita pares
+  `[['Texto', 'valor']]`, arrays de strings ou coleções de objetos
+  (`value_method:`/`text_method:`, padrão `:id`/`:name`), além de `prompt:` e `include_blank:`.
+- `money_field` — input numérico com prefixo de moeda (`R$`), `step: 0.01`, `min: 0`.
+
+Todos aplicam `is-invalid` + mensagem de erro automaticamente a partir de
+`f.object.errors`.
+
 ## Desenvolvimento
 
 ```bash
@@ -72,4 +101,6 @@ dummy via request specs — é ali que o registro de helpers (`ComponentRegister
 1. Crie `app/components/odeio_front_end/meu_componente.rb` (+ template `.html.haml` se precisar).
 2. Adicione `:meu` à lista `COMPONENTS` em `app/helpers/odeio_front_end/component_register.rb` —
    o helper `meu(...)` passa a existir em todas as views automaticamente.
+   (Se o bloco precisa receber argumentos, como no `field`, adicione também
+   à lista `BLOCK_ARGS_COMPONENTS`.)
 3. Escreva o spec antes (`spec/components/`).
