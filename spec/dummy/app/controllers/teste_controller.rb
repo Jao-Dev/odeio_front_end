@@ -9,4 +9,7 @@ class TesteController < ApplicationController
 
   def links
   end
+
+  def forma
+  end
 end

@@ -1,5 +1,6 @@
 require_relative "dummy/config/environment"
 require "rspec/rails"
+require_relative "support/modelos_fake"
 require "capybara/rspec"
 require "view_component/test_helpers"
 

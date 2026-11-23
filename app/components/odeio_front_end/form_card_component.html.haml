@@ -1,0 +1,17 @@
+%div{**@html}
+  .page-header.d-print-none.mb-3
+    .row.align-items-center
+      .col
+        %h2.page-title= @title
+        - if @subtitle
+          .page-subtitle= @subtitle
+      - if render_actions?
+        .col-auto.ms-auto.d-flex.align-items-center= actions_body
+  .card
+    .card-body
+      - if errors?
+        = errors_summary
+      = content
+    .card-footer.text-end
+      = button_tag @submit_label, type: :submit, class: "btn btn-primary"
+      = link_to "Cancelar", cancel_path, class: "btn btn-link ms-2"
